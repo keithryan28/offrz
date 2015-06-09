@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offrz | uploadPage</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<style type="text/css">
+  .fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+</style>
+<body>
+ <% include nav.ejs %>
+
+
+<div class="container col-lg-6 col-lg-offset-3" id="uploadtestUpdate">
+<br/>
+
+
+       <form id="uploadForm"  enctype="multipart/form-data" action="/uploadImageTest" method="POST">
+        
+          <div class="fileUpload btn btn-primary">
+              <span>Select Image</span>
+              <input type="file" class="upload" name="theFile" required />
+          </div>
+          
+          <label style="display:block;"   class="control-label">Title</label>
+          <input type="text" name="postTitle" class="form-control"   autofocus value="" required />
+
+          <label class="control-label">Description</label>
+          <textarea type="text" name="postDesc" class="form-control" id="charaterLength" autofocus value="" required></textarea>
+          
+          <span id="warning" style="color:#737373;">Limit of 350 characters.</span>
+    
+
+          <label style="display:block;" class="control-label">Direct Link To Product Page</label>
+          <input type="url" name="postLink" class="form-control"   autofocus value="" required />
+          <span class="help-block with-errors">Please paste link here.</span>
+          
+
+          <label class="control-label">Before Price</label>
+          <input type="text" onkeypress="return isNumberKey(event)"  name="postBeforePrice" class="form-control"   autofocus value="" required /><span class="help-block with-errors">Numbers and decimal point only.</span>
+
+          <label class="control-label">After Price</label>
+          <input type="text" onkeypress="return isNumberKey(event)" name="postAfterPrice" class="form-control"   autofocus value="" required /><span class="help-block with-errors">Numbers and decimal point only.</span>
+
+          <br/>
+          <input type="submit" id="uploadBtn" class="btn btn-lg btn-success btn-block" value="POST" name="submit">
+        </form>
+        <br/><br/><br/>
+
+</div> <!-- /container -->
+
+<% include busFooter.ejs %>
+<% include logout.ejs %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- a script for contraining the amount of characters inserted in the description field. It also diables the post button when the limit is exceeded  -->
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+  $("#charaterLength").keyup(function () {
+    var i = $("#charaterLength").val().length;
+
+    $("#counter").val(i);
+    if (i > 350) {
+        $("#warning").text("Sorry, you've gone over the limit for this field.").css("color", "red");
+        $('#uploadBtn').attr("disabled", true);
+        //$('#desc1').hide();
+        
+      } else {
+        $("#warning").text("Limit of 350 characters").css("color", "#737373");
+        $('#uploadBtn').attr("disabled", false);
+        //$('#desc1').show();
+       
+    }
+  });
+
+});
+</script>
+<!-- a script used for allowing numbers only to be entered. Not perfect as it doesn't stop text from being pasted it -->
+<script>
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+        return false;
+    return true;
+}    
+</script>
+
+
+</body>
+</html>

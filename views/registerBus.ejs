@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offrz | RegisterUser</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand header-tag" style="font-family: 'Eczar', serif;" href="#">Offrz</a>
+    </div>
+   </div><!-- /.container-fluid -->
+</nav>
+<br/>
+
+<div class="container col-lg-4 col-lg-offset-4" style="max-width: 400px;" id="registerUser">
+  <a href="/login" class="fa fa-sign-in fa-2x" title="Login"></a>
+  <img src="./images/logo.png" class="img-responsive center-block" />
+  <form class="form-horizontal" action='/processRegBus' enctype="multipart/form-data" method="POST">
+      <h3 class="form-signin-heading">Register Business</h3>
+        <label class="control-label">Logo</label>
+        <input type="file" name="theFile"/>
+        <!-- Username -->
+        <label class="control-label" for="BusinessName">Business Name</label>
+        <input type="text" id="businessName" name="businessName" class="form-control" placeholder="Business Name" required autofocus>
+        <p class="help-block">Can contain any letters only</p>
+
+        <label class="control-label" for="siteUrl">Website URL</label>
+        <input type="text" id="url" name="url" class="form-control" placeholder="Main Domain" required autofocus>
+        <p class="help-block">Link to main company website</p>
+
+        <label class="control-label" for="address">Address</label>
+         <select class="form-control" name="address" id="sel1" required>
+              <option>Select A County</option>
+              <option>Armagh</option>
+              <option>Carlow</option>
+              <option>Cavan</option>
+              <option>Clare</option>
+              <option>Cork</option>
+              <option>Derry</option>
+              <option>Donegal</option>
+              <option>Down</option>
+              <option>Dublin</option>
+              <option>Fermanagh</option>
+              <option>Galway</option>
+              <option>Kerry</option>
+              <option>Kildare</option>
+              <option>Kilkenny</option>
+              <option>Laois</option>
+              <option>Leitrim</option>
+              <option>Limerick</option>
+              <option>Longford</option>
+              <option>Louth</option>
+              <option>Mayo</option>
+              <option>Meath</option>
+              <option>Monaghan</option>
+              <option>Offaly</option>
+              <option>Roscommon</option>
+              <option>Sligo</option>
+              <option>Tipperary</option>
+              <option>Tyrone</option>
+              <option>Waterford</option>
+              <option>Westmeath</option>
+              <option>Wexford</option>
+              <option>Wicklow</option>
+            </select>
+
+
+        <label class="control-label" for="gpslat">Latitutude</label>
+        <input type="text" id="gpsLat" name="gpsLat" class="form-control" placeholder="latitude" required autofocus>
+        <p class="help-block">Latitude Coordinates</p>
+
+        <label class="control-label" for="gpslong">Longitutde</label>
+        <input type="text" id="gpsLong" name="gpsLong" class="form-control" placeholder="longitude" required autofocus>
+        <p class="help-block">Longitude Coordinates</p>
+
+    
+        <!-- E-mail -->
+        <label class="control-label" for="email">Email</label>
+  
+          <input type="text" id="email" name="email" placeholder="Email" class="form-control" required autofocus>
+          <p class="help-block">Please provide your E-mail</p>
+      
+        <!-- Password-->
+        <label class="control-label" for="password">Password</label>
+
+          <input type="password" id="password" name="password" placeholder="****" class="form-control" required autofocus>
+          <p class="help-block">Password should be at least 4 characters</p>
+      
+      
+        <!-- Button -->
+        
+          <button class="btn btn-lg btn-success btn-block">Register</button>
+       
+    
+    </form>
+</div> <!-- /container -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

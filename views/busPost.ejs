@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offrz | RegisterUser</title>
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+  
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+ <% include nav.ejs %>
+
+<div class="container col-lg-6 col-lg-offset-3" id="registerUser">
+  
+   <form id="uploadForm" enctype="multipart/form-data" action="/uploadImage" method="POST">
+    
+    <input type="file" name="theFile" />
+
+    <label class="control-label">Title</label>
+    <input type="text" name="title" class="form-control" placeholder="Post Title" required autofocus>
+    
+    <label class="control-label">Description</label>
+    <input type="text" name="desc" class="form-control" placeholder="Description" required autofocus>
+ 
+  <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      <div class="input-group-addon">.00</div>
+    </div>
+
+    <label class="control-label">Link</label>
+    <input type="text" name="link" class="form-control" placeholder="web link" required autofocus>
+ 
+ 
+    <label class="control-label">Before</label>
+    <input type="text" name="before" class="form-control" placeholder="Before Price" required autofocus>   
+
+ 
+    <label class="control-label">After</label>
+    <input type="text" name="after" class="form-control" placeholder="After Price" required autofocus>
+<br/>
+   <input type="submit" class="btn btn-lg btn-success btn-block" value="POST" name="submit">
+  </form>
+
+
+</div> <!-- /container -->
+
+<% include busFooter.ejs %>
+<% include logout.ejs %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

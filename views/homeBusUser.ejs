@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offrz | Business Name Here</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="javascripts/lazy_load.js"></script>
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="container col-md-4 col-md-offset-4" id="timeline">
+ <% include busnav.ejs %>
+     <% for (var i = 0; i < businessPosts.length; i++) { %>
+  <div class="row bgColor">
+  
+
+     <!-- first row -->
+    <div class="col-xs-12">
+    <a href="#"><h5 class="capitalise"><%= businessPosts[i].post_created_by %></h5></a>
+      <a href="/editBusPost?id=<%= businessPosts[i]._id %>" class="fa fa-edit fa-1x pull-right">edit</a>
+    </div>
+
+
+     <!-- second row -->
+    <div class="col-xs-12 main-image">
+       <img src="<%= businessPosts[i].imgpath %>" class="img-responsive center-block lazy" />      
+    </div> 
+
+
+     
+        <!-- third row -->
+    <div class="side-padding">    
+
+    <div class="col-xs-6 text-center" >
+        <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.offrz.com/singlePost?id=<%= businessPosts[i]._id %>&title=Check%20out%20the%20latest%20%23Offrz%20of%20%40%20 %>" target="_blank" class="shareBtn share-icons"><i class="fa fa-facebook fa-1x"></i></a>
+
+          <a href="http://twitter.com/intent/tweet?status=Check%20out%20the%20latest%20%23Offrz%20of%20 <%= businessPosts[i].post_created_by %>+%40 http://www.offrz.com/singlePost?id=<%= businessPosts[i]._id %>" target="_blank" class="shareBtn share-icons"><i class="fa fa-twitter fa-1x"></i></a>
+
+
+          <a href="https://plus.google.com/share?url=http://www.offrz.com/singlePost?id=<%= businessPosts[i]._id %>" target="_blank" class="shareBtn share-icons"><i class="fa fa-google fa-1x"></i></a>
+      </div> 
+
+     <a href="<%= businessPosts[i].link %>" target="_blank">        
+      <div class="col-xs-6 buy text-center">
+            <p style="color: white;">BUY</p>
+      </div> 
+     </a>
+    </div>
+
+    <!-- fourth row -->
+    <div class="col-xs-12 main-image">
+      <h5 class="capitalise"><strong><%= businessPosts[i].title %></strong></h5>     
+    </div>
+
+    <!-- fivth row -->
+    <div class="col-xs-12 main-image">
+      <p class="capitalise"><%= businessPosts[i].desc %></p>     
+    </div>
+
+    
+        <div class="col-xs-4 white top text-center">
+          <strong>Before</strong>
+        </div>
+
+        <div class="col-xs-4 white top text-center">
+          <strong>After</strong>
+        </div>
+        <div class="col-xs-4 white top text-center">
+          <strong>Saving</strong>
+        </div>
+   
+    
+    
+    <div class="col-xs-4 white text-center">
+      <p>€<%= businessPosts[i].before %></p>
+    </div>
+
+    <div class="col-xs-4 white text-center">
+      <p>€<%= businessPosts[i].after %></p>
+    </div>
+    <div class="col-xs-4 white text-center">
+      <p><%= businessPosts[i].percent %>%</p>
+    </div> 
+
+  </div>
+   <% } %>
+
+   
+</div> <!-- /container -->
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("img.lazy").lazy({
+        effect: "fadeIn",
+        effectTime: 1500
+    });
+});
+</script>
+
+<% include busFooter.ejs %>
+<% include logout.ejs %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/scripts.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
