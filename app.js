@@ -5,8 +5,8 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 
-process.env['user_api'] = 'keithryan28';
-process.env['user_key'] = 'Arsenal1#';
+process.env['user_api'] = '*********';
+process.env['user_key'] = '*********';
 
 
 var routes = require('./routes');
